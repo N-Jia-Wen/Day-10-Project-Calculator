@@ -1,0 +1,24 @@
+from art import logo
+
+
+
+def calculator():
+  calculator_end = False
+  
+  no1 = float(input("What's the first number? "))
+  while not calculator_end:
+    operation = input("+\n-\n*\n/\nPick an operation: ")
+    no2 = float(input("What's the next number? "))
+    result = eval(f"{no1} {operation} {no2}")
+    equation_string = f"{no1} {operation} {no2} = {result}"
+    print(equation_string)
+
+    carry_on = input(f"Type 'y' to continue calculating with {result}, or type 'n' to start a new calculation: ")
+    if carry_on == "n":
+      calculator_end = True
+      calculator()
+    elif carry_on == "y":
+      no1 = result
+
+print(logo)
+calculator()
